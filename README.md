@@ -191,9 +191,8 @@ The top 10 products by rating recorded an average rating of 4.94/5, with seven p
 The analysis found very weak relationships between rating and reviews (0.0572) and between current price and rating (0.1101). Sellers should therefore avoid making pricing or marketing decisions based on a single metric. A broader approach combining price, discount, ratings, reviews, product quality, and customer feedback would provide a stronger basis for decision-making.
 
 ## Limitations
-Limitations
 
-1.No sales or revenue data: The dataset does not contain actual sales, revenue, profit, or conversion data. Therefore, reviews are used only as a proxy for customer engagement and should not be interpreted as direct evidence of sales performance.
+1. No sales or revenue data: The dataset does not contain actual sales, revenue, profit, or conversion data. Therefore, reviews are used only as a proxy for customer engagement and should not be interpreted as direct evidence of sales performance.
 2.	Missing ratings: 55 out of 112 products (49.1%) have no recorded rating. This limits the reliability of comparisons involving product ratings and may affect the overall interpretation of rating-based analysis.
 3.	No listing-age information: The data set does not indicate how long each product has been listed. Products that have been available for longer may naturally accumulate more reviews, which cannot be accounted for in this analysis.
 4. Correlation does not imply causation: The correlation analyses show relationships between variables but cannot establish that discounts, prices, or ratings directly cause changes in review engagement.
