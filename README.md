@@ -26,11 +26,11 @@ The analysis was designed to help Jumia, and its sellers understand how price, p
 The dataset contained product-level information from Jumia about product names, current prices, previous prices, advertised discounts, customer reviews, and customer ratings.
 The main variables included: 
 
-1.Product-This column contained Product names.
-2.Current Price-it contained current selling price of the products in Kenyan shillings.
-3.Discount-Contained the discount percentages of the products.
-4.Review-Had number of  customer reviews recorded.
-5.Rating-contained the ratings given by customers out of the possible five.
+1. Product-This column contained Product names.
+2. Current Price-it contained current selling price of the products in Kenyan shillings.
+3. Discount-Contained the discount percentages of the products.
+4. Review-Had number of  customer reviews recorded.
+5. Rating-contained the ratings given by customers out of the possible five.
 
 The customer review count was used as an engagement proxy and not a measure of sales because the data did not contain units sold or revenue.
 
@@ -41,53 +41,53 @@ Technologies-There was also the use of excel tables and formulas, Pivot tables a
 The raw data was pulled from a GitHub repository and the excel worksheet stored as an Excel Jumia dataset worksheet before any cleaning or transformation was done.
 
 The original data contained:
-1.Two duplicates 
-2.Products that were written in mixed formats, some had Proper format and others were fully in caps.
-3.Several missing values in the rate and review columns.
-4.There were cells containing ranges in the current and old price column. 
-5.The column Rating was named Ratingd
-6.The values in Review had a negative preceding all of them.
-7.The Rating column had a mixture of text and numeric values; the text was written as (out of 5).
-8.The data in the columns were in the wrong data types.
+1. Two duplicates 
+2. Products that were written in mixed formats, some had Proper format and others were fully in caps.
+3. Several missing values in the rate and review columns.
+4. There were cells containing ranges in the current and old price column. 
+5. The column Rating was named Ratingd
+6. The values in Review had a negative preceding all of them.
+7. The Rating column had a mixture of text and numeric values; the text was written as (out of 5).
+8. The data in the columns were in the wrong data types.
 
 So, to correct the data errors the following were done:
-1.By using conditional formatting, the duplicated files were highlighted with red and the criteria used were products with 2.the same name. Then they were filtered out, compared across their other column entries and the ones similar across columns were deleted.
-3.Missing values in numeric columns were left as blanks and in text they were tagged as missing or missing entry.
-4.Product names were turned into proper format using the =PROPER () function.
-5.The cells containing range as a value were changed to a midpoint by averaging.
-6.The column ratingd was rewritten as Rating.
-7.The review column with the negative entries was highlighted and by use of CTRL + H we replaced the negative sign with a blank making the values appear without a negation.
-8.The Rating column with the text “out of 5” was corrected by Ctrl+H where we removed the “out of 5” part.
+1. By using conditional formatting, the duplicated files were highlighted with red and the criteria used were products with the same name. Then they were filtered out, compared across their other column entries and the ones similar across columns were deleted.
+2. Missing values in numeric columns were left as blanks and in text they were tagged as missing or missing entry.
+3. Product names were turned into proper format using the =PROPER () function.
+4. The cells containing range as a value were changed to a midpoint by averaging.
+5. The column ratingd was rewritten as Rating.
+6. The review column with the negative entries was highlighted and by use of CTRL + H we replaced the negative sign with a blank making the values appear without a negation.
+7. The Rating column with the text “out of 5” was corrected by Ctrl+H where we removed the “out of 5” part.
 
 The data type was converted by highlighting the columns with the wrong type and in home, selected the number section and changed the data types.
 
 ## Added Features.
 There was need to add fields to support the analysis. These fields generated and stored in columns were:
-1.Price check- we used it to check if the prices were valid by subtracting the old price to the new price and returning Ok if it was fine or otherwise flagging it to be checked.
-2.Price category-with the use of the 1st and 3rd quartile we placed the Current prices in a properly defined threshold. Where Price Q_3 was 1669.5 and Price Q_1 was 493.
-3.Discount amount- we calculated the precise discount amount for each product.
-4.Discount check-we checked if the discount was between 0-1 and asked for a return of “OK” when it met the condition, otherwise it would return a “check the discount” message.
-5.Discount category- created threshold for discount where <20% represented low discount, >20% but <=40% represented medium discount, and >40% represented High discount.
-6.Review engagement flag-Created a well-defined threshold of 75% percentile-(Q_3) which acted as a wall between strong engagement and weak engagement.
-7.Rate flag- Checked if the rate column was well defined and returned OK if it was,otherwise returning ” Check the rating.”
-8.Rating category- Defined<3 as poor rating, <=4.5 as average, and >4.5 as Excellent otherwise returned missing or doesn’t meet these criteria.
-9.High discount and low rating flag- recorded the cells with High discount and low rating flag, otherwise returned “doesn’t meet criteria” or “Missing entry.”
-10.High discount and low review engagement- recorded the cells with High discount and low review engagement, otherwise returned “doesn’t meet criteria” or “Missing entry.”
-11.Many reviews and average rating- recorded the cells with Many reviews and average rating flag, otherwise returned “doesn’t meet criteria” or “Missing entry.”
-12.Strong review engagement and excellent rating- recorded the cells with Strong review engagement and excellent rating, otherwise returned “doesn’t meet criteria” or “Missing entry.”
+1. Price check- we used it to check if the prices were valid by subtracting the old price to the new price and returning Ok if it was fine or otherwise flagging it to be checked.
+2. Price category-with the use of the 1st and 3rd quartile we placed the Current prices in a properly defined threshold. Where Price Q_3 was 1669.5 and Price Q_1 was 493.
+3. Discount amount- we calculated the precise discount amount for each product.
+4. Discount check-we checked if the discount was between 0-1 and asked for a return of “OK” when it met the condition, otherwise it would return a “check the discount” message.
+5. Discount category- created threshold for discount where <20% represented low discount, >20% but <=40% represented medium discount, and >40% represented High discount.
+6. Review engagement flag-Created a well-defined threshold of 75% percentile-(Q_3) which acted as a wall between strong engagement and weak engagement.
+7. Rate flag- Checked if the rate column was well defined and returned OK if it was,otherwise returning ” Check the rating.”
+8. Rating category- Defined<3 as poor rating, <=4.5 as average, and >4.5 as Excellent otherwise returned missing or doesn’t meet these criteria.
+9. High discount and low rating flag- recorded the cells with High discount and low rating flag, otherwise returned “doesn’t meet criteria” or “Missing entry.”
+10. High discount and low review engagement- recorded the cells with High discount and low review engagement, otherwise returned “doesn’t meet criteria” or “Missing entry.”
+11. Many reviews and average rating- recorded the cells with Many reviews and average rating flag, otherwise returned “doesn’t meet criteria” or “Missing entry.”
+12. Strong review engagement and excellent rating- recorded the cells with Strong review engagement and excellent rating, otherwise returned “doesn’t meet criteria” or “Missing entry.”
 
 ## Analysis
 To analyze the data, we did Descriptive analysis,  then did relationship analysis with use of scatter plots, correlations and product ranking analysis where we used the Top/bottom products and performance flags.
 ### 1. Descriptive Analysis
 The following metrics were calculated with the use of Excel formulas:
-- Total number of products
-- Average current price
-- Average old price
-- Average discount
-- Average rating
-- Total reviews
-- Highest current price
-- Lowest current price
+-  Total number of products
+-  Average current price
+-  Average old price
+-  Average discount
+-  Average rating
+-  Total reviews
+-  Highest current price
+-  Lowest current price
 ### 2. Relationship analysis
 Three relationships were investigated using scatter plots and Pearson correlation coefficients:
 1. Discount versus review 
@@ -97,36 +97,36 @@ Linear trendlines and R-squared values were also included in the scatter plots t
 Correlation results were interpreted as associations and not as evidence of causation.
 ### 3. Product Ranking Analysis
 The analysis identified:
- - Top 5 products by rating- here 7 products had equal ratings, review count was used as a tiebreaker, and it enabled us to obtain 4 topmost products by rating but still we had one spot and 3 products with the same rate. So, we introduced current price as a tie breaker, and we got the top 5 products by rating.
- - Bottom 5 products by rating
- - Top 10 products by discount 
-- Top 10 products by review count 
-- Top 10 products by rating 
-- Products with high discounts and low ratings 
-- Products with high discounts and low engagement 
-- Products with many reviews and average ratings
+ -  Top 5 products by rating- here 7 products had equal ratings, review count was used as a tiebreaker, and it enabled us to obtain 4 topmost products by rating but still we had one spot and 3 products with the same rate. So, we introduced current price as a tie breaker, and we got the top 5 products by rating.
+ -   Bottom 5 products by rating
+ -   Top 10 products by discount
+ -   Top 10 products by review count
+ -   Top 10 products by rating
+ -   Products with high discounts and low ratings
+ -   Products with high discounts and low engagement
+ -   Products with many reviews and average ratings
 
 ### Dashboard
 The dashboard created provides an interactive summary of the Jumia product 
 analysis.
 The dashboard displays 5 KPI’s:
-- Total Products
-- Average Current Price
-- Average Discount
-- Average Rating
-- Total Reviews
+-  Total Products
+-  Average Current Price
+-  Average Discount
+-  Average Rating
+-  Total Reviews
 There is also Visualizations of various aspects of our data which include:
-- Top products by rating in a horizontal bar chart
-- Top products by reviews in a horizontal bar chart
-- Top products with discount on a horizontal bar chart
-- Discount versus reviews in a column chart- Rating versus reviews in a pie chart
-- Price versus rating in a column chart
-- Rating distribution in a column chart
-- Discount distribution in a column chart
+-  Top products by rating in a horizontal bar chart
+-  Top products by reviews in a horizontal bar chart
+-  Top products with discount on a horizontal bar chart
+-  Discount versus reviews in a column chart- Rating versus reviews in a pie chart
+-  Price versus rating in a column chart
+-  Rating distribution in a column chart
+-  Discount distribution in a column chart
 To make our dashboard interactive we included three slicers:
-- Rating Category slicer
-- Discount Category slicer
-- Price Category slicer
+-  Rating Category slicer
+-  Discount Category slicer
+-  Price Category slicer
 These slicers allow filtering the dashboard and exploring different products 
 segments interactively.
 In addition, we placed a refreshing date that shows when the dashboard was last updated.
