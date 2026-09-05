@@ -46,6 +46,7 @@ The original data contained:
 -The values in Review had a negative preceding all of them.
 -The Rating column had a mixture of text and numeric values; the text was written as (out of 5).
 -The data in the columns were in the wrong data types.
+
 So, to correct the data errors the following were done:
 By using conditional formatting, the duplicated files were highlighted with red and the criteria used were products with the same name. Then they were filtered out, compared across their other column entries and the ones similar across columns were deleted.
 Missing values in numeric columns were left as blanks and in text they were tagged as missing or missing entry.
